@@ -105,7 +105,7 @@ func TestHerokuAgent(t *testing.T) {
 		t.Fatal(err)
 	}
 	if req.URL.Scheme != "http" {
-		t.Error("Expected http scheme, got %s", req.URL.Scheme)
+		t.Errorf("Expected http scheme, got %s", req.URL.Scheme)
 	}
 }
 
