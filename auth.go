@@ -7,8 +7,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/heroku/hk/Godeps/_workspace/src/github.com/bgentry/heroku-go"
-	"github.com/heroku/hk/Godeps/_workspace/src/github.com/bgentry/speakeasy"
+	"github.com/bgentry/heroku-go"
+	"github.com/bgentry/speakeasy"
 	"github.com/heroku/hk/hkclient"
 	"github.com/heroku/hk/term"
 )
@@ -26,7 +26,7 @@ Example:
 
     $ hk authorize
     Enter email: user@test.com
-	Enter two-factor auth code: 
+	Enter two-factor auth code:
     Authorization successful.
 `,
 }
@@ -102,7 +102,7 @@ Example:
 
     $ hk login
     Enter email: user@test.com
-    Enter password: 
+    Enter password:
     Login successful.
 `,
 }

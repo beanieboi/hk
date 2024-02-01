@@ -8,11 +8,11 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/heroku/hk/Godeps/_workspace/src/github.com/bgentry/heroku-go"
-)
+	"fmt"
+	"os"
 
-import "fmt"
-import "os"
+	"github.com/bgentry/heroku-go"
+)
 
 var alwaysUseHTTPGit bool
 

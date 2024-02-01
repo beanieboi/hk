@@ -12,9 +12,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/heroku/hk/Godeps/_workspace/src/github.com/bmizerany/pq"
-	"github.com/heroku/hk/Godeps/_workspace/src/github.com/gorilla/mux"
-	"github.com/heroku/hk/Godeps/_workspace/src/github.com/kr/secureheader"
+	"github.com/bmizerany/pq"
+	"github.com/gorilla/mux"
+	"github.com/kr/secureheader"
 )
 
 const (
@@ -25,12 +25,12 @@ var db *sql.DB
 
 // Examples:
 //
-//   PUT /hk-1-linux-386.json
-//   PUT /hk-linux-386.json
+//	PUT /hk-1-linux-386.json
+//	PUT /hk-linux-386.json
 //
-//   GET /hk-current-linux-386.json
-//   GET /hk-1-linux-386.json
-//   GET /hk.gz
+//	GET /hk-current-linux-386.json
+//	GET /hk-1-linux-386.json
+//	GET /hk.gz
 func web(args []string) {
 	mustHaveEnv("DATABASE_URL")
 	initwebdb()

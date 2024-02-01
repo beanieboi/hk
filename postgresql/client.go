@@ -12,7 +12,7 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/heroku/hk/Godeps/_workspace/src/code.google.com/p/go-uuid/uuid"
+	"github.com/google/uuid"
 )
 
 const (
@@ -89,7 +89,7 @@ func (c *Client) NewDB(id, plan string) DB {
 // perform the request. The request's Accept header field will be
 // set to:
 //
-//   Accept: application/json
+//	Accept: application/json
 //
 // The Request-Id header will be set to a random UUID. The User-Agent header
 // will be set to the Client's UserAgent, or DefaultUserAgent if UserAgent is
@@ -123,7 +123,7 @@ func (c *Client) NewRequest(isStarterPlan bool, method, path string) (*http.Requ
 		req.URL.Scheme = "http"
 	}
 	req.Header.Set("Accept", "application/json")
-	req.Header.Set("Request-Id", uuid.New())
+	req.Header.Set("Request-Id", uuid.New().String())
 	useragent := c.UserAgent
 	if useragent == "" {
 		useragent = DefaultUserAgent
@@ -151,10 +151,9 @@ func (c *Client) APIReq(isStarterPlan bool, meth, path string, v interface{}) er
 // the response into v. The type of v determines how to handle
 // the response body:
 //
-//   nil        body is discarded
-//   io.Writer  body is copied directly into v
-//   else       body is decoded into v as json
-//
+//	nil        body is discarded
+//	io.Writer  body is copied directly into v
+//	else       body is decoded into v as json
 func (c *Client) DoReq(req *http.Request, v interface{}) error {
 	if c.Debug {
 		dump, err := httputil.DumpRequestOut(req, true)

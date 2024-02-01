@@ -2,7 +2,7 @@
 //
 // It has three sub-commands: build, web, and gen.
 //
-//   $ hkdist build [platforms]
+//	$ hkdist build [platforms]
 //
 // This command builds cross-compiled binaries. The tool builds all known
 // platforms by default, but will optionally build for a specified list of
@@ -11,11 +11,11 @@
 // executable, uploads the binary to an S3 bucket, and posts its SHA-256 hash
 // to the hk distribution server (hk.heroku.com in production).
 //
-//   $ hkdist web
+//	$ hkdist web
 //
 // This command provides directory service for hk binary hashes.
 //
-//   $ hkdist gen
+//	$ hkdist gen
 //
 // This command polls the distribution server to learn about new releases,
 // then generates byte-sequence patches between each pair of releases on
@@ -30,7 +30,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/heroku/hk/Godeps/_workspace/src/github.com/kr/s3"
+	"github.com/kr/s3"
 )
 
 var (

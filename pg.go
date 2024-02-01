@@ -9,7 +9,7 @@ import (
 	"strings"
 	"text/tabwriter"
 
-	"github.com/heroku/hk/Godeps/_workspace/src/github.com/bgentry/heroku-go"
+	"github.com/bgentry/heroku-go"
 )
 
 var cmdPgList = &Command{
@@ -271,7 +271,7 @@ Examples:
     psql (9.3.1, server 9.1.11)
     SSL connection (cipher: DHE-RSA-AES256-SHA, bits: 256)
     Type "help" for help.
-    
+
     d1234abcdefghi=>
 
     $ hk psql crimson

@@ -17,9 +17,9 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/heroku/hk/Godeps/_workspace/src/bitbucket.org/kardianos/osext"
-	"github.com/heroku/hk/Godeps/_workspace/src/github.com/inconshreveable/go-update"
-	"github.com/heroku/hk/Godeps/_workspace/src/github.com/kr/binarydist"
+	"github.com/inconshreveable/go-update"
+	"github.com/kardianos/osext"
+	"github.com/kr/binarydist"
 )
 
 var cmdUpdate = &Command{
@@ -51,27 +51,27 @@ var ErrHashMismatch = errors.New("new file hash mismatch after patch")
 
 // Update protocol.
 //
-//   GET hk.heroku.com/hk/current/linux-amd64.json
+//	GET hk.heroku.com/hk/current/linux-amd64.json
 //
-//   200 ok
-//   {
-//       "Version": "2",
-//       "Sha256": "..." // base64
-//   }
+//	200 ok
+//	{
+//	    "Version": "2",
+//	    "Sha256": "..." // base64
+//	}
 //
 // then
 //
-//   GET hkpatch.s3.amazonaws.com/hk/1/2/linux-amd64
+//	GET hkpatch.s3.amazonaws.com/hk/1/2/linux-amd64
 //
-//   200 ok
-//   [bsdiff data]
+//	200 ok
+//	[bsdiff data]
 //
 // or
 //
-//   GET hkdist.s3.amazonaws.com/hk/2/linux-amd64.gz
+//	GET hkdist.s3.amazonaws.com/hk/2/linux-amd64.gz
 //
-//   200 ok
-//   [gzipped executable data]
+//	200 ok
+//	[gzipped executable data]
 type Updater struct {
 	apiURL  string
 	cmdName string
